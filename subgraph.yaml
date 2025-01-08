@@ -1,0 +1,26 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: CurveRouter
+    network: mainnet
+    source:
+      address: "0x16c6521dff6bab339122a0fe25a9116693265353"
+      abi: CurveRouter
+      startBlock: 20189560
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Exchange
+      abis:
+        - name: CurveRouter
+          file: ./abis/CurveRouter.json
+      eventHandlers:
+        - event: Exchange(indexed address,indexed address,address[11],uint256[5],address[5],uint256,uint256)
+          handler: handleExchange
+      file: ./src/curve-router.ts

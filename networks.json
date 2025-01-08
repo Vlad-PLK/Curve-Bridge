@@ -1,0 +1,8 @@
+{
+  "mainnet": {
+    "CurveRouter": {
+      "address": "0x16c6521dff6bab339122a0fe25a9116693265353",
+      "startBlock": 20189560
+    }
+  }
+}
