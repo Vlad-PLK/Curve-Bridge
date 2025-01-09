@@ -1,5 +1,6 @@
 import { Exchange as ExchangeEvent } from "../generated/CurveRouter/CurveRouter"
 import { Exchange } from "../generated/schema"
+import { Bytes } from "@graphprotocol/graph-ts"
 
 export function handleExchange(event: ExchangeEvent): void {
   let entity = new Exchange(
@@ -7,9 +8,9 @@ export function handleExchange(event: ExchangeEvent): void {
   )
   entity.sender = event.params.sender
   entity.receiver = event.params.receiver
-  entity.route = event.params.route
   entity.swap_params = event.params.swap_params
-  entity.pools = event.params.pools
+  entity.route = event.params.route.map<Bytes>((address) => address as Bytes);
+  entity.pools = event.params.pools.map<Bytes>((address) => address as Bytes);
   entity.in_amount = event.params.in_amount
   entity.out_amount = event.params.out_amount
 

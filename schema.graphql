@@ -3,7 +3,7 @@ type Exchange @entity(immutable: true) {
   sender: Bytes! # address
   receiver: Bytes! # address
   route: [Bytes!]! # address[11]
-  swap_params: [BigInt!]! # uint256[5]
+  swap_params: [[BigInt]] # uint256[5][5]
   pools: [Bytes!]! # address[5]
   in_amount: BigInt! # uint256
   out_amount: BigInt! # uint256

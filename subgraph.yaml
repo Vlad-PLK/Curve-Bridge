@@ -21,6 +21,6 @@ dataSources:
         - name: CurveRouter
           file: ./abis/CurveRouter.json
       eventHandlers:
-        - event: Exchange(indexed address,indexed address,address[11],uint256[5],address[5],uint256,uint256)
+        - event: Exchange(indexed address,indexed address,address[11],uint256[5][5],address[5],uint256,uint256)
           handler: handleExchange
       file: ./src/curve-router.ts
